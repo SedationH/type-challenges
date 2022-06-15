@@ -24,11 +24,18 @@ interface Expected2 {
 }
 
 // ============= Your Code Here =============
-// type MyPick<T, K in keyof T> = {
-//   [P in K] : T[P]
-// }
-// 1. 限制 K 的取值
-
 type MyPick<T, K extends keyof T> = {
   [P in K]: T[P]
+}
+
+// how js handle this
+const MyPickJS = (T: object, K: string[]) => {
+  const res = {}
+  K.forEach((k) => {
+    if (k in T) {
+      res[k] = T[k]
+    }
+  })
+
+  return res
 }
