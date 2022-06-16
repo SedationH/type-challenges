@@ -27,15 +27,3 @@ interface Expected2 {
 type MyPick<T, K extends keyof T> = {
   [P in K]: T[P]
 }
-
-// how js handle this
-const MyPickJS = (T: object, K: string[]) => {
-  const res = {}
-  K.forEach((k) => {
-    if (k in T) {
-      res[k] = T[k]
-    }
-  })
-
-  return res
-}

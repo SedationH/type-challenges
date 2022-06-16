@@ -14,5 +14,5 @@ interface Todo1 {
 
 // ============= Your Code Here =============
 type MyReadonly<T> = {
-  +readonly [P in keyof T]: T[P]
+  +readonly [K in keyof T]: T[K]
 }
